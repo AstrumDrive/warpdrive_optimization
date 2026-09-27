@@ -220,13 +220,14 @@ Thus, by Einstein's equations, the stress--energy tensor inherits the same struc
 \begin{equation}
 T_{00}=(T_0)_{00}\,,\qquad T_{0i}=(T_0)_{0i}\,, \qquad
 T_{ij}= (T_{0})_{ij} + v^{k}_{*}(t)  \partial_{k}[K_{ij}-K\delta_{ij}]\,,
+\label{eq:Tij-motion}
 \end{equation}
 so only spatial stresses $T_{ij}$ are affected by motion through gradients of the shift
 \cite{Santiago:2021aup,Schuster:2023ADMmass}.
 
 Comparing with our material sector for the seed solution, we see that only modifications are introduced in the pressures (radial and tangential). Since there is no heat flow in the seed solution, there will be none in the warped solution either. Finally, the energy density of the warped solution will be equal to that of the seed solution. What is remarkable about this is that if we start with a solution with positive energy density, when we apply the warp procedure, we will continue to have the same positive energy density. This does not guarantee that the energy conditions will be satisfied, but it allows us to avoid the negative-energy-density requirement of the standard Alcubierre/Natario-type sourcing of having negative energy densities.
 
-\subsection{Linear-shift similarity and the \texorpdfstring{$vt$}{vt} degeneracy}
+\subsection{Linear-shift similarity}
 \label{sec:vt-similarity}
 For the zero-vorticity (Nat\'ario) class with a \emph{linear} constant centroid motion we have
 \begin{equation}
@@ -236,19 +237,9 @@ The dynamic metric is obtained from the static seed by a rigid spatial translati
 \begin{equation}
     \beta_i(t,\bar{\mathbf x})=\beta(\bar r)\,\hat{\bar r}_i + v^*_{i},\qquad \bar{\mathbf x}=\mathbf x-\mathbf v_* t\,,
 \end{equation}
-where the first term encodes the bubble profile and the second represents the constant boost. Since the extrinsic curvature $K_{ij}=\tfrac12(\partial_i\beta_j+\partial_j\beta_i)$ involves only spatial derivatives, the constant velocity $v^*_i$ does not contribute with any gradients. Consequently, $K_{ij}$ and the ADM constraints coincide exactly with those of the static seed ~\cite{Arnowitt:1962hi,Wald1984ucp,Alcub2008itnr}. Moreover, for flat spatial slices, the stress--energy tensor in the orthonormal fluid frame equals its static counterpart evaluated at $\bar r=\|\mathbf x-\mathbf v_* t\|$ (see \cite{Santiago:2021aup,Schuster:2023ADMmass} for more details).
+where the first term encodes the bubble profile and the second represents the constant boost. Since the extrinsic curvature $K_{ij}=\tfrac12(\partial_i\beta_j+\partial_j\beta_i)$ involves only spatial derivatives, the constant velocity $v^*_i$ does not contribute with any gradients. Consequently, $K_{ij}$ and the ADM constraints coincide exactly with those of the static seed ~\cite{Arnowitt:1962hi,Wald1984ucp,Alcub2008itnr}. For flat spatial slices, the energy density and the energy flux in the orthonormal comoving frame are therefore those of the static seed evaluated at $\bar r=\|\mathbf x-\mathbf v_* t\|$ (see \cite{Santiago:2021aup,Schuster:2023ADMmass} for more details). The spatial stresses are not, as Eq.~\eqref{eq:Tij-motion} shows.
 
-This observation leads to a striking degeneracy. The diffeomorphism $\mathbf x\mapsto\mathbf x-\mathbf v_* t$ maps the static seed to the line element
-\[
-ds^2=-dt^2+\delta_{ij}\big[dx^i-(\nabla^i\Phi(\bar{\mathbf x})+v_*^i)dt\big]\big[dx^j-(\nabla^j\Phi(\bar{\mathbf x})+v_*^j)dt\big],
-\]
-but the Einstein tensor and all scalar invariants depend only on $K_{ij}$, which is independent of the uniform boost. Therefore, for any two pairs $(v_1,t_1)$ and $(v_2,t_2)$ satisfying $v_1 t_1=v_2 t_2$, the equal-time slices of all physical quantities---energy density $\rho$, pressure trace $\mathrm{tr}\,P$, energy-condition margins---coincide up to a rigid spatial translation $\Delta\mathbf x=\mathbf v_2 t_2-\mathbf v_1 t_1$. In bubble-centered (comoving) coordinates, where $\bar{\mathbf x}$ is held fixed, the configurations are completely identical.
-
-This $vt$ degeneracy has immediate practical consequences: all our slice diagnostics of energy conditions (\WEC/\NEC/\DEC/\SEC) computed at fixed $v_*=0.1$ represent the entire similarity class with the same displacement $d=\|\mathbf v_* t\|$. Put physically, within this constant-velocity, zero-vorticity class,
-\begin{center}
-    \emph{how far the bubble has moved} matters, but \emph{how fast} does not!
-\end{center}
-A slow bubble over a long time and a fast bubble over a short time produce identical bubble-centered diagnostics. The degeneracy is broken when the centroid motion becomes non-uniform ($\dot{\mathbf v}_*\neq0$), introducing Lie-derivative corrections $\mathcal{L}_\beta K_{ij}$~\cite{Santiago:2021aup}, or when additional sources, fields, or boundary conditions break translational invariance.
+In the comoving coordinates $\bar{\mathbf x}$ the metric does not depend on $t$, because the only time dependence of the lab-frame metric is the rigid translation of the centroid. Two consequences follow for the diagnostics. First, at fixed $\mathbf v_*$ every time slice is equivalent. Bubble-centered diagnostics are independent of $t$, lab-frame snapshots at different times differ only by the translation $\mathbf v_* t$, and a single slice represents the whole constant-velocity trajectory. Second, the speed itself matters. The energy density and the energy flux are independent of $\mathbf v_*$, but the spatial stresses carry the term linear in $\mathbf v_*$ of Eq.~\eqref{eq:Tij-motion}, which enters the evolution equation for $K_{ij}$ through the Lie derivative $\mathcal{L}_\beta K_{ij}$. Two configurations with the same displacement $\mathbf v_* t$ and different speeds therefore have the same $\rho$ but different stresses, and different \WEC, \NEC, \DEC{} and \SEC{} margins. The margins reported in this work are those at $v_*=0.1$. A non-uniform centroid motion ($\dot{\mathbf v}_*\neq0$), additional sources or fields, or boundary conditions that break translational invariance introduce further corrections~\cite{Santiago:2021aup}.
 
 
 \section{Numerical diagnostics and physics-informed optimization}
@@ -373,7 +364,7 @@ For the single-shell configuration, the energy density $\rho$ forms a clean annu
 
 The double-shell configuration presents a more complex geometry. It maintains $\rho>0$ on the sampled slices (Fig.~\ref{fig:d2-xy-rho}), but localized \WEC/\NEC\ deficits emerge near the geometric center or the inner vacuum interface (Figs.~\ref{fig:d2-xy-wecmin} and~\ref{fig:d2-xy-necmin}). The regenerated \SEC\ diagnostics are mixed rather than uniformly positive, although they remain less restrictive in aggregate than the \DEC. This behavior suggests that while double shells can redistribute curvature, the added interface can channel negative margins into the inner region under warping. As in the single shell, the \DEC\ remains the tightest constraint (Fig.~\ref{fig:d2-xy-decmargin}).
 
-Interface layers ultimately control convergence; very thin shells demand high resolution. In practice, convergence is assessed empirically via the stabilization of the composite loss, the energy-condition success fractions, and the trainable parameters, rather than via any convexity property of $\mathcal{L}_\text{tot}$; the plateau behaviour of the loss and success curves together with the parameter plateaus in Figs.~\ref{fig:d1-opt} and~\ref{fig:d2-opt} is representative. Because the metric is stationary in comoving coordinates for constant $v_*$, we monitor optimizer-epoch stability and interface-regularity diagnostics on a single time slice; $N_{xyz}=48$ suffices to resolve the shells employed here. Within the linear-shift class with constant $v_*$, bubble-centered diagnostics are independent of $v_*$ (see discussion on section~\ref{sec:vt-similarity}); what matters for lab-frame snapshots is the displacement $d=\|\mathbf v_* t\|$. Erosion of margins with ``speed'' arises only beyond this class (e.g., for $\dot{\mathbf v}_* \neq 0$, non-uniform shifts, or additional fields).
+Interface layers ultimately control convergence; very thin shells demand high resolution. In practice, convergence is assessed empirically via the stabilization of the composite loss, the energy-condition success fractions, and the trainable parameters, rather than via any convexity property of $\mathcal{L}_\text{tot}$; the plateau behaviour of the loss and success curves together with the parameter plateaus in Figs.~\ref{fig:d1-opt} and~\ref{fig:d2-opt} is representative. Because the metric is stationary in comoving coordinates for constant $v_*$, we monitor optimizer-epoch stability and interface-regularity diagnostics on a single time slice; $N_{xyz}=48$ suffices to resolve the shells employed here. Within the linear-shift class with constant $v_*$, bubble-centered diagnostics are independent of $t$, so one slice per speed suffices. They do depend on $v_*$ through the stresses (Sec.~\ref{sec:vt-similarity}), and the margins reported here are those at $v_*=0.1$.
 
 \section{Final Summary}
 \label{sec:conclusions}
